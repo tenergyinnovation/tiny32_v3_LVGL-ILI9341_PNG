@@ -1,0 +1,74 @@
+
+This directory is intended for project specific (private) libraries.
+PlatformIO will compile them to static libraries and link into executable file.
+
+The source code of each library should be placed in a an own separate directory
+("lib/your_library_name/[here are source files]").
+
+For example, see a structure of the following two libraries `Foo` and `Bar`:
+
+|--lib
+|  |
+|  |--Bar
+|  |  |--docs
+|  |  |--examples
+|  |  |--src
+|  |     |- Bar.c
+|  |     |- Bar.h
+|  |  |- library.json (optional, custom build options, etc) https://docs.platformio.org/page/librarymanager/config.html
+|  |
+|  |--Foo
+|  |  |- Foo.c
+|  |  |- Foo.h
+|  |
+|  |- README --> THIS FILE
+|
+|- platformio.ini
+|--src
+   |- main.c
+
+and a contents of `src/main.c`:
+```
+#include <Foo.h>
+#include <Bar.h>
+
+int main (void)
+{
+  ...
+}
+
+```
+
+#define BTN_PIN 34 //SW1
+#define TFT_CS 14
+#define TFT_RST 15 // Or set to -1 and connect to Arduino RESET pin
+#define TFT_DC 32
+#define TFT_MOSI 26
+#define TFT_SCLK 27
+
+Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_MOSI, TFT_SCLK, TFT_RST);
+
+PlatformIO Library Dependency Finder will find automatically dependent
+libraries scanning project source files.
+
+More information about PlatformIO Library Dependency Finder
+- https://docs.platformio.org/page/librarymanager/ldf.html
+
+*********************************************************************
+Please clone to lib
+1. git clone https://github.com/tenergyinnovation/tiny32_v3.git
+2. git clone https://github.com/Bodmer/TFT_eSPI.git
+3. git clone https://github.com/PaulStoffregen/XPT2046_Touchscreen.git  //** this library is option , need to connect touch pin to esp32 **
+4. git clone https://github.com/lvgl/lvgl.git 
+5. git clone https://github.com/bitbank2/PNGdec.git
+
+
+// Image files can be converted to arrays using the tool here:
+// https://notisrac.github.io/FileToCArray/
+// To use this tool:
+//   1. Drag and drop file on "Browse..." button
+//   2. Tick box "Treat as binary"
+//   3. Click "Convert"
+//   4. Click "Save as file" and move the header file to sketch folder
+//   5. Open the sketch in IDE
+//   6. Include the header file containing the array (panda.h in this example)
